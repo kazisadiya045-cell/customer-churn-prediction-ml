@@ -1,0 +1,11 @@
+Test,Scenario,Expected Result,Status,Notes
+1,Direct answer in one document,Return relevant text and source,Not executed,Current demo searches three built-in notes; verify relevant question manually.
+2,Question needs multiple passages,Retrieve all required passages,Not implemented,Current demo returns only the single highest-scoring note.
+3,Question uses synonyms,Find relevant information if available,Not validated,TF-IDF lexical matching may miss synonyms.
+4,Topic absent from documents,Say information was not found,Partially implemented,Threshold 0.10; test unrelated prompts and tune threshold.
+5,Empty question,Ask user to enter a question,Implemented in code; not runtime-tested,Empty input displays a warning.
+6,Missing or very short document,Skip or flag unusable text,Not implemented,Built-in notes are static; no document-ingestion validation.
+7,Irrelevant retrieved passages,Avoid presenting irrelevant text as reliable,Partially implemented,Similarity threshold is used; false matches remain possible.
+8,Conflicting evidence in two documents,Show sources and flag the conflict,Not implemented,No conflict detection or multi-document comparison.
+9,Duplicate documents,Detect or remove duplicates,Not implemented for Q&A docs,Dataset duplicates are removed; Q&A note deduplication is not implemented.
+10,Misleading instructions in a document,"Treat document text as evidence, not instructions",Not implemented/tested,Current Q&A notes are hard-coded; adversarial document handling is not present.
